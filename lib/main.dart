@@ -27,7 +27,10 @@ class WebTest extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             object1(),
-            // object2(),
+            object2(hintext: 'ອີເມວ', obscure: false),
+            SizedBox(height: 10),
+            object2(hintext: 'ລະຫັດ', obscure: true),
+            SizedBox(height: 10),
             object6(),
           ],
         ),
@@ -35,9 +38,25 @@ class WebTest extends StatelessWidget {
     );
   }
 
-  object2() {
-    // return Container(child: ,)
+  object2({String hintext, bool obscure}) {
+    return Container(
+      width: 200,
+      height: 35,
+      child: TextFormField(
+        // keyboardType: TextInputType.emailAddress,
+        style: TextStyle(fontSize: 14),
+        autofocus: false,
+        obscureText: obscure,
+        decoration: InputDecoration(
+            filled: true,
+            contentPadding:
+                EdgeInsets.only(left: 10, right: 5, top: 5, bottom: 5),
+            hintText: '$hintext',
+            border: OutlineInputBorder(borderSide: BorderSide.none)),
+      ),
+    );
   }
+
   object1() {
     return Container(
       child: Center(
